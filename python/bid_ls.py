@@ -45,21 +45,21 @@ for camp in camps:
 	B = int(camp_info["cost_train"] / camp_info["imp_train"] * c0 * N)
 
 	# Mcpc
-	auction_in = open(data_path + camp + "/test.theta.txt", "r")
-	mcpc = Mcpc(camp_info)
-	setting = "{}, camp={}, algo={}, N={}, c0={}, obj={}, clk_v={}"\
-		.format(src, camp, "mcpc", N, c0, obj_type, opt_obj.clk_v)
-	bid_log_path = config.projectPath + "bid-log/{}.txt".format(setting)
-	(auction, imp, clk, cost) = mcpc.run(auction_in, bid_log_path, N, c0,
-	                                     max_market_price, delimiter=" ", save_log=True)
-	win_rate = imp / auction * 100
-	cpm = (cost / 1000) / imp * 1000
-	ecpc = (cost / 1000) / clk
-	obj = opt_obj.get_obj(imp, clk, cost)
-	log = "{:<80}\t{:>10}\t{:>8}\t{:>10}\t{:>8}\t{:>8}\t{:>8.2f}%\t{:>8.2f}\t{:>8.2f}" \
-		.format(setting, obj, auction, imp, clk, cost, win_rate, cpm, ecpc)
-	print(log)
-	log_in.write(log + "\n")
+	# auction_in = open(data_path + camp + "/test.theta.txt", "r")
+	# mcpc = Mcpc(camp_info)
+	# setting = "{}, camp={}, algo={}, N={}, c0={}, obj={}, clk_v={}"\
+	# 	.format(src, camp, "mcpc", N, c0, obj_type, opt_obj.clk_v)
+	# bid_log_path = config.projectPath + "bid-log/{}.txt".format(setting)
+	# (auction, imp, clk, cost) = mcpc.run(auction_in, bid_log_path, N, c0,
+	#                                      max_market_price, delimiter=" ", save_log=True)
+	# win_rate = imp / auction * 100
+	# cpm = (cost / 1000) / imp * 1000
+	# ecpc = (cost / 1000) / clk
+	# obj = opt_obj.get_obj(imp, clk, cost)
+	# log = "{:<80}\t{:>10}\t{:>8}\t{:>10}\t{:>8}\t{:>8}\t{:>8.2f}%\t{:>8.2f}\t{:>8.2f}" \
+	# 	.format(setting, obj, auction, imp, clk, cost, win_rate, cpm, ecpc)
+	# print(log)
+	# log_in.write(log + "\n")
 
 	# # Lin-Bid
 	# auction_in = open(data_path + camp + "/test.theta.txt", "r")

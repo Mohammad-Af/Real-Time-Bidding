@@ -1,6 +1,7 @@
 import json
 
-dataPath = "../data/"
+dataPath = "/home/RTBidding/data/"
+full_data_path = "/home/RTBidding/make-ipinyou-data-master/"
 projectPath = dataPath + "rlb-dp/"
 
 ipinyouPath = dataPath + "ipinyou-data/"

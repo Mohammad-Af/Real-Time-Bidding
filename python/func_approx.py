@@ -146,7 +146,8 @@ if model == "dnb":
 	                                          # ['sgd', 2e-2, 'mean']
 	                                          )
 
-	train_dir = data_path + camp + "/fa-train/rlb_dnb_gamma=1_N={}_{}_1/".format(N, obj_type)
+	# train_dir = data_path + camp + "/fa-train/rlb_dnb_gamma=1_N={}_{}_1/".format(N, obj_type)
+	train_dir = data_path + camp + "/fa-train/rlb_dnb_N=1000_c0=0.125.txt"
 	n_list = [i for i in range(n_bound + 1, N)]
 
 	# train, eval
@@ -155,7 +156,7 @@ if model == "dnb":
 	model_path = config.projectPath + "fa-model/" + tag + "/"
 	log_path = config.projectPath + "fa-log/" + tag + ".txt"
 	if save_model and mode == "train":
-		os.mkdir(model_path)
+		os.makedirs(model_path)
 
 	print(tag)
 	print(nn_approx.log)

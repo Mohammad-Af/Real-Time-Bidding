@@ -1,4 +1,4 @@
-import _pickle as pickle
+import pickle
 
 import time
 import numpy as np

@@ -23,7 +23,7 @@ class LR:
 
 			# batch train channel
 			self.batch_labels = tf.placeholder(tf.float32, shape=[batch_size])
-			log_loss = tf.nn.sigmoid_cross_entropy_with_logits(batch_regressions, self.batch_labels)
+			log_loss = tf.nn.sigmoid_cross_entropy_with_logits(logits=batch_regressions, labels=self.batch_labels)
 			if opt_argv[-1] == 'sum':
 				self.loss = tf.reduce_sum(log_loss)
 			else:
@@ -39,7 +39,7 @@ class LR:
 		theta_gather_weights = tf.gather(W_lr, x_id)
 		wt_shape = x_wt.get_shape().as_list()
 		wt_shape.append(1)
-		theta_weighted_gather_weights = tf.mul(theta_gather_weights, tf.reshape(x_wt, wt_shape))
+		theta_weighted_gather_weights = tf.multiply(theta_gather_weights, tf.reshape(x_wt, wt_shape))
 		theta_regression = tf.reduce_sum(theta_weighted_gather_weights, 1)
 		return theta_regression
 
